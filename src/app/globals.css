@@ -145,8 +145,13 @@ html[dir="rtl"] .ys-slash-clip {
   will-change: transform;
   animation: ys-marquee 22s linear infinite;
 }
+/* In RTL the track is right-aligned and overflows leftward, so it must slide the other way */
+@keyframes ys-marquee-rtl {
+  from { transform: translateX(0); }
+  to { transform: translateX(50%); }
+}
 html[dir="rtl"] .ys-marquee-track {
-  animation-direction: reverse;
+  animation-name: ys-marquee-rtl;
 }
 
 /* Hide scrollbars on horizontal rails */
